@@ -1,5 +1,19 @@
 package klinika.main;
 
-public class Lekarz
+public class Lekarz extends Personel
 {
+private String specjalizacja;
+
+
+
+    public void aktualizujKartePacjenta(KartaPacjenta karta)
+{
+
+}
+
+    public Lekarz(String imie, String nazwisko, String adres, String haslo, int pesel, int godzinaRozpoczeciaPracy, int godzinaZakonczeniaPracy, String specjalizacja)
+    {
+        super(imie, nazwisko, adres, haslo, pesel, godzinaRozpoczeciaPracy, godzinaZakonczeniaPracy);
+        this.specjalizacja = specjalizacja;
+    }
 }
