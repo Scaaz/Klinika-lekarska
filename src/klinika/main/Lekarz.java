@@ -16,4 +16,8 @@ private String specjalizacja;
         super(imie, nazwisko, adres, haslo, pesel, godzinaRozpoczeciaPracy, godzinaZakonczeniaPracy);
         this.specjalizacja = specjalizacja;
     }
+
+
+
+
 }

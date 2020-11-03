@@ -6,8 +6,6 @@ public class Osoba
 {
     private Map<Integer, String> daneLogowania = new HashMap<>();
     private List<Pacjent> listaPacjentow = new ArrayList<>();
-    private List<Lekarz> listaLekarzy = new ArrayList<>();
-    private List<Recepcja> listaRecepcji = new ArrayList<>();
 
     private String imie;
     private String nazwisko;
@@ -18,9 +16,7 @@ public class Osoba
     Scanner input = new Scanner(System.in);
 
 
-
-
-    public void rejestracja()
+    public Pacjent rejestracja()
     {
 
         System.out.print("Wpisz pesel: ");
@@ -39,8 +35,22 @@ public class Osoba
 
         Pacjent p1 = new Pacjent(imie, nazwisko, adres, haslo, pesel);
         listaPacjentow.add(p1);
+        return p1;
 
     }
+
+    public boolean czyPacjent(int pesel)
+    {
+        for (Pacjent obiektPacjent : listaPacjentow)
+        {
+            if (obiektPacjent.getPesel() == pesel)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public int logowanie()
     {
@@ -54,7 +64,7 @@ public class Osoba
             System.out.print("Wpisz haslo: ");
             String haslo = input.nextLine();
 
-            if (haslo.equals(daneLogowania.get(pesel)) )
+            if (haslo.equals(daneLogowania.get(pesel)))
             {
                 System.out.println("Zalogowano poprawnie");
                 return pesel;
@@ -67,12 +77,20 @@ public class Osoba
         return 0;
     }
 
+    public Map<Integer, String> getDaneLogowania()
+    {
+        return daneLogowania;
+    }
+
+    public String getHaslo()
+    {
+        return haslo;
+    }
 
     public void wyswietlDane()
     {
 
     }
-
 
 
     public void wyswietlOgloszenia()
