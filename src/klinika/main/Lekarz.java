@@ -11,6 +11,11 @@ private String specjalizacja;
 
 }
 
+    public String getSpecjalizacja()
+    {
+        return specjalizacja;
+    }
+
     public Lekarz(String imie, String nazwisko, String adres, String haslo, int pesel, int godzinaRozpoczeciaPracy, int godzinaZakonczeniaPracy, String specjalizacja)
     {
         super(imie, nazwisko, adres, haslo, pesel, godzinaRozpoczeciaPracy, godzinaZakonczeniaPracy);

@@ -1,53 +1,75 @@
 package klinika.main;
 
 
-
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Pacjent extends Osoba
 {
 
+    private Map<Integer, KartaPacjenta> kartaPacjentaHashMap = new HashMap<>();
 
 
-
-    public void wyborSpecjalizacji()
+    public void wyborSpecjalizacji(Personel personel)
     {
-        int wybor;
+        int licznik = 1;
+        String wyborSpecjalizacji;
         System.out.println("1. PIERWSZEGO KONTAKTU");
         System.out.println("2. KARDIOLOG");
         System.out.println("3. NEUROLOG");
         System.out.println("4. UROLOG");
         System.out.println("5. PSYCHOLOG");
         System.out.println("6. LARYNGOLOG");
-        wybor = input.nextInt();
+        System.out.print("\n Wpisz wybrana specjalizacje: ");
+        wyborSpecjalizacji = input.nextLine();
+        for (Lekarz obiektLekarz : personel.getListaLekarzy())
+        {
+            if (obiektLekarz.getSpecjalizacja().contains(wyborSpecjalizacji))
+            {
+                System.out.println(licznik + ". " + obiektLekarz.getImie() + " " + obiektLekarz.getNazwisko());
+                licznik++;
+            }
+        }
+        String wybranyLekarz;
+
+        System.out.println("\n Wpisz nazwisko wybranego lekarza: ");
+        wybranyLekarz = input.nextLine();
+
+
     }
 
-    public void wyborLekarza()
+    public void wyborLekarza(Personel personel)
     {
-
+        int licznik = 1;
+        for (Lekarz obiektLekarz : personel.getListaLekarzy())
+        {
+            System.out.println(licznik + ". " + obiektLekarz.getImie() + " " + obiektLekarz.getNazwisko());
+            licznik++;
+        }
     }
 
-    public void umowWizyte()
+    public void umowWizyte(Personel personel)
     {
         int wybor;
         Scanner input = new Scanner(System.in);
         System.out.println("1. WYBOR LEKARZA");
         System.out.println("2. WYBOR SPECJALIZACJI");
         wybor = input.nextInt();
-
         if (wybor == 1)
         {
-            this.wyborLekarza();
-        }
-        else if(wybor == 2)
+            this.wyborLekarza(personel);
+        } else if (wybor == 2)
         {
-            this.wyborSpecjalizacji();
+            this.wyborSpecjalizacji(personel);
+
         }
         else
-            umowWizyte();
-    }
+            umowWizyte(personel);
 
+
+
+    }
 
 
     public Pacjent(String imie, String nazwisko, String adres, String haslo, int pesel)
@@ -55,5 +77,8 @@ public class Pacjent extends Osoba
         super(imie, nazwisko, adres, haslo, pesel);
     }
 
-
+    public Map<Integer, KartaPacjenta> getKartaPacjentaHashMap()
+    {
+        return kartaPacjentaHashMap;
+    }
 }

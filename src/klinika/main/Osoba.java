@@ -35,6 +35,8 @@ public class Osoba
 
         Pacjent p1 = new Pacjent(imie, nazwisko, adres, haslo, pesel);
         listaPacjentow.add(p1);
+        KartaPacjenta karta = new KartaPacjenta();
+        p1.getKartaPacjentaHashMap().put(pesel,karta);
         return p1;
 
     }
@@ -49,6 +51,18 @@ public class Osoba
             }
         }
         return false;
+    }
+
+    public Pacjent zwrocPacjent(int pesel)
+    {
+        for (Pacjent obiektPacjent : listaPacjentow)
+        {
+            if (obiektPacjent.getPesel() == pesel)
+            {
+                return obiektPacjent;
+            }
+        }
+        return null;
     }
 
 
@@ -77,6 +91,21 @@ public class Osoba
         return 0;
     }
 
+    public void wyswietlDanePacjenta(Pacjent p1)
+    {
+        System.out.println("Imie: "+ p1.getImie());
+        System.out.println("Nazwisko: "+p1.getNazwisko());
+        System.out.println("Pesel: "+ p1.getPesel());
+        System.out.println("Adres: "+p1.getAdres());
+
+    }
+
+
+    public void wyswietlOgloszenia()
+    {
+
+    }
+
     public Map<Integer, String> getDaneLogowania()
     {
         return daneLogowania;
@@ -87,20 +116,29 @@ public class Osoba
         return haslo;
     }
 
-    public void wyswietlDane()
-    {
-
-    }
-
-
-    public void wyswietlOgloszenia()
-    {
-
-    }
-
     public int getPesel()
     {
         return pesel;
+    }
+
+    public List<Pacjent> getListaPacjentow()
+    {
+        return listaPacjentow;
+    }
+
+    public String getImie()
+    {
+        return imie;
+    }
+
+    public String getNazwisko()
+    {
+        return nazwisko;
+    }
+
+    public String getAdres()
+    {
+        return adres;
     }
 
     public Osoba()
@@ -116,5 +154,6 @@ public class Osoba
         this.haslo = haslo;
         this.pesel = pesel;
     }
+
 }
 

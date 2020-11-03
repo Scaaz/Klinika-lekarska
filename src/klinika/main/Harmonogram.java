@@ -20,7 +20,12 @@ public class Harmonogram
 
     public void wyborTerminu()
     {
-
+        System.out.println("wybierzTermin");
+        System.out.println("Poniedzialek");
+        System.out.println("Wtorek");
+        System.out.println("Sroda");
+        System.out.println("Czwartek");
+        System.out.println("Piatek");
     }
 
 

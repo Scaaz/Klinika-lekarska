@@ -42,8 +42,15 @@ public class Personel extends Osoba
     }
 
 
+    public List<Lekarz> getListaLekarzy()
+    {
+        return listaLekarzy;
+    }
 
-
+    public List<Recepcja> getListaRecepcji()
+    {
+        return listaRecepcji;
+    }
 
     public Personel(String imie, String nazwisko, String adres, String haslo, int pesel, int godzinaRozpoczeciaPracy, int godzinaZakonczeniaPracy)
     {
