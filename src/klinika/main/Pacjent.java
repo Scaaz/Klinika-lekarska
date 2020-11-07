@@ -35,6 +35,17 @@ public class Pacjent extends Osoba
 
         System.out.println("\n Wpisz nazwisko wybranego lekarza: ");
         wybranyLekarz = input.nextLine();
+        Harmonogram harmonogram = new Harmonogram();
+        Lekarz lekarz = new Lekarz();
+        for (Lekarz obiektLekarz : personel.getListaLekarzy())
+        {
+            if (obiektLekarz.getNazwisko().equals(wybranyLekarz))
+            {
+               lekarz = obiektLekarz;
+            }
+        }
+        harmonogram.wyborTerminu(lekarz);
+
 
 
     }

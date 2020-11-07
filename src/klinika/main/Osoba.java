@@ -106,6 +106,8 @@ public class Osoba
 
     }
 
+
+
     public Map<Integer, String> getDaneLogowania()
     {
         return daneLogowania;
@@ -154,6 +156,7 @@ public class Osoba
         this.haslo = haslo;
         this.pesel = pesel;
     }
+
 
 }
 

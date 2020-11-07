@@ -52,6 +52,28 @@ public class Personel extends Osoba
         return listaRecepcji;
     }
 
+    public int getGodzinaRozpoczeciaPracy()
+    {
+        return godzinaRozpoczeciaPracy;
+    }
+
+    public int getGodzinaZakonczeniaPracy()
+    {
+        return godzinaZakonczeniaPracy;
+    }
+
+    public Lekarz zwrocLekarz(int pesel)
+    {
+        for (Lekarz obiektLekarz : listaLekarzy)
+        {
+            if (obiektLekarz.getPesel() == pesel)
+            {
+                return obiektLekarz;
+            }
+        }
+        return null;
+    }
+
     public Personel(String imie, String nazwisko, String adres, String haslo, int pesel, int godzinaRozpoczeciaPracy, int godzinaZakonczeniaPracy)
     {
         super(imie, nazwisko, adres, haslo, pesel);
