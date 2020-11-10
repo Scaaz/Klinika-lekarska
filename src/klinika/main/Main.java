@@ -38,15 +38,15 @@ public class Main
         Harmonogram harmonogram = new Harmonogram();
 
 
-        while (wybor != 4)
+        while (wybor != 3)
         {
 
 
             System.out.println("\n\t~~~~~KONSOLOWA KLINIKA LEKARSKA~~~~~");
             System.out.println("1. REJESTRACJA PACJENTA");
             System.out.println("2. LOGOWANIE");
-            System.out.println("3. KORONA");
-            System.out.println("4. WYJSCIE");
+            //System.out.println("3. FORUM");
+            System.out.println("3. WYJSCIE");
 
             wybor = input.nextInt();
 
@@ -124,9 +124,6 @@ public class Main
                     }
                     break;
 
-                case 3:
-
-                    break;
             }
         }
 
