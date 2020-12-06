@@ -1,18 +1,20 @@
 package klinika.main;
 
-public class Lekarz extends Personel
+public class Lekarz extends Personel implements Pracownik
 {
 private String specjalizacja;
 
 public boolean grafik [][] = new boolean[5][this.getGodzinaZakonczeniaPracy()-this.getGodzinaRozpoczeciaPracy()];
 
 
+    @Override
+    public void obsluzPacjenta(Pacjent p) {
+        System.out.println("----Lekarz kontaktuje sie z pacjentem----");
+        aktualizujKartePacjenta(p.getKartaPacjentaHashMap().get(p));
+    }
 
 
-    public void aktualizujKartePacjenta(KartaPacjenta karta)
-{
 
-}
 
     public String getSpecjalizacja()
     {
@@ -34,11 +36,11 @@ public boolean grafik [][] = new boolean[5][this.getGodzinaZakonczeniaPracy()-th
 
     }
 
-    public Lekarz()
-    {
+    public void aktualizujKartePacjenta(KartaPacjenta karta) {
 
     }
 
-
+    public Lekarz() {
+    }
 
 }
