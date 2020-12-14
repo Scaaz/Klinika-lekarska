@@ -35,9 +35,10 @@ public class Main
 
         KartaPacjenta karta = new KartaPacjenta();
 
+
+
+        HarmonogramPelnomocnik pelnomocnik = new HarmonogramPelnomocnik();
         Harmonogram harmonogram = new Harmonogram();
-
-
         while (wybor != 3)
         {
 

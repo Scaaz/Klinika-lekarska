@@ -1,29 +1,12 @@
 package klinika.main;
 
-
 import java.util.Scanner;
 
-public class Harmonogram implements HarmonogramInterfejs
+public interface HarmonogramInterfejs
 {
     Scanner input = new Scanner(System.in);
 
-
-
-
-
-    public void aktualizujGrafikLekarza(Lekarz lekarz, int dzien, int godzina)
-    {
-        lekarz.grafik[dzien - 1][godzina - 1] = true;
-    }
-
-    public void nowyGrafik()
-    {
-
-    }
-
-
-    @Override
-    public void wyswietlGrafikLekarza(Lekarz lekarz)
+     default void wyswietlGrafikLekarza(Lekarz lekarz)
     {
         for (int i = 0; i < 5; i++)
         {
@@ -56,10 +39,10 @@ public class Harmonogram implements HarmonogramInterfejs
             }
             System.out.println("");
         }
+
     }
 
-    @Override
-    public void wyborTerminu(Lekarz lekarz)
+    default void wyborTerminu(Lekarz lekarz)
     {
         int start = lekarz.getGodzinaRozpoczeciaPracy();
         int koniec = lekarz.getGodzinaZakonczeniaPracy();
@@ -89,5 +72,10 @@ public class Harmonogram implements HarmonogramInterfejs
 
         int godzina = input.nextInt();
         aktualizujGrafikLekarza(lekarz, dzien, godzina);
+    }
+
+    default void aktualizujGrafikLekarza(Lekarz lekarz, int dzien, int godzina)
+    {
+        lekarz.grafik[dzien - 1][godzina - 1] = true;
     }
 }
