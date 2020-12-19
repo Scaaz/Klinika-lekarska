@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Recepcja extends Personel implements Pracownik
 {
-
+    Wydawca wydawca;
     @Override
     public void obsluzPacjenta(Pacjent p) {
         System.out.println("----Recepcjonista kontaktuje sie z pacjentem----");
@@ -14,19 +14,22 @@ public class Recepcja extends Personel implements Pracownik
     public void wyslijInformacje() {
         System.out.print("Wpisz informacje: ");
         Scanner s = new Scanner(System.in);
-        String informacja = input.nextLine();
+        String informacja =s.nextLine();
         System.out.println("\tNOWA INFORMACJA!");
         System.out.println(informacja);
 
     }
 
 
-    public void doajOgloszenie() {
+    public void dodajOgloszenie() {
         System.out.print("Wpisz tresc ogloszenia: ");
         Scanner s = new Scanner(System.in);
-        String ogloszenie = input.nextLine();
+        String ogloszenie = s.nextLine();
         System.out.println("\nDODANO NOWE OGLOSZENIE:");
         System.out.println(ogloszenie);
+        wydawca.getOgloszenia().add(ogloszenie);
+        wydawca.setGlownyStatus(1);
+        wydawca.wyslijInformacjeObserwujacym();
     }
 
 
